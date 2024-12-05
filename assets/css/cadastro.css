@@ -4,6 +4,19 @@
     text-decoration: none;
     box-sizing: border-box;
     transition: all 0.2s;
+    font-family: "Poppins", sans-serif;;
+}
+
+.rammetto-one-regular {
+  font-family: "Rammetto One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
 :root {
@@ -35,68 +48,73 @@ header{
       }
     }
 }
-    
-
-
-.rammetto-one-regular {
-    font-family: "Rammetto One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-.formulario {
-    display: flex;
-}
 
 .principal{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    & .air-jordan{
+      width: 700px;
+      height: 550px;
+      padding-right: 30px;
+    } & form{
+      padding-left: 10px;
+      color: var(--roxo);
+      & h1{
+      font-size: 35px;
+    } & .direita{
+      font-size: 20px;
+      & input{
+        border-radius: 4px;
+        width: auto;
+        padding-left: 8px;
+        height: 28px;
+      } 
+    }& .esquerda{
+      font-size: 20px;
+      & .generos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      } & .generos div{
+        display: flex;
+        gap: 10px;
+      } & .fam{
+        color: deeppink;
+      }& .mas{
+        color: deepskyblue;
+      }
+        & input{
+        border-radius: 4px;
+        padding-left: 8px;
+        width: auto;
+        height: 28px;
+      } 
+    }
+    }
   }
-  
-.air-jordan{
-    width: 750px;
-    margin-top: -206px;
-  }
+  .flex4{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  } & .flex4 p{
+    color: var(--preto);
+    font-size: 15px;
+    & a{
+      color: var(--roxo);
+      font-size: 15px;
+    }
 
-.poppins-bold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: normal;
   }
-
 .d-flex {
     display: flex;
     gap: 20px;
 }
-
-.generos {
-    display: flex;
-    gap: 20px;
-}
-
-
-
-.masc {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 3px;
-}
-
-.fem {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 3px;
-}
-
-p {
-    color: var(--roxo);
-}
-
-h1 {
-    color: var(--roxo);
-}
-
 button {
     border-radius: 25px;
+    font-size: 20px;
     margin-top: 10px;
     color: var(--branco);
     padding: 10px;

@@ -385,9 +385,9 @@ header{
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding-left: 100px;
   & h1{
-    font-size: 65px;
-    padding: 0px 50px;
+    font-size: 50px;
     & span{
       color: var(--roxo);
     }
@@ -402,12 +402,13 @@ header{
       width: 80%;
       height: auto;
       z-index: 2;
-      right: 100px;
+      padding-left: 20px;
     }
     & .gif{
       position: absolute;
       width: 60%;
       height: auto;
+      padding-left: 20px;
       z-index: 1;
     }
   }
