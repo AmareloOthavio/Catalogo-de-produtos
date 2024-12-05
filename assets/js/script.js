@@ -132,7 +132,7 @@ function exibirProdutos(pesquisa = '') {
     const prodAtuais = localStorage.getItem('produtos')
     
     if (!prodAtuais) {
-        produtosDiv.innerHTML = '<p class="poppins-regular">Nenhum produto encontrado.</p>'
+        produtosDiv.innerHTML = '<p class="poppins-regular m-bot">Nenhum produto encontrado.</p>'
         return
     }
     
