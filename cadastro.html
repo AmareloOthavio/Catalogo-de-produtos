@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <header>
+        <img src="assets/img/pé roxo.png" alt="">
+        <p>Passo Certo</p>
+    </header>
+
+    <h1 class="titulo">Cadastrar seu Calçado</h1>
+    <form action="{{ url_for('cadastro') }}" method="post">
+        <section class="flex">
+        <div class="form">
+            <p class="label1">Nome</p>
+            <input class="input1" required type="text"/>
+        </div>
+
+        <div class="form">
+            <p class="label1">Categoria</p>
+            <input class="input1" required type="text"/>
+        </div>
+    </section>
+    <section class="flex">
+        <div class="form">
+            <p class="label1">Descrição</p>
+            <input class="input2" required type="text"/>
+        </div>
+
+        <div class="form">
+            <p class="label1">Preço</p>
+            <input class="input2" required type="number"/>
+        </div>
+    </section>
+    <section class="flex">
+        <div class="form">
+          <p class="label1">Gênero</p>
+            <p>Masculino</p>
+            <input class="input3" required type="checkbox"/>
+            <p>Feminino</p>
+            <input class="input3" required type="checkbox"/>
+        </div>
+
+        <div class="form">
+          <p class="label1">Foto</p>
+            <input class="input3" required type="image"/>
+        </div>
+    </section>
+    <section class="flex">
+        <button class="bt5" type="submit">Cadastrar →</button>
+    </section>
+    </form>
+</body>
+</html>
