@@ -489,7 +489,6 @@ header{
     }
 
     .rodape2 {
-        flex-direction: column;
         padding-top: 10px;
         padding-bottom: 10px;
     }
@@ -560,7 +559,6 @@ header{
     }
 
     .rodape2 {
-        flex-direction: column;
         padding: 10px;
     }
 
@@ -575,6 +573,12 @@ header{
     /* Esconde o GIF em telas muito pequenas */
     .fundo .gif {
         display: none;
+    }
+    .diminuir{
+        width: 30px;
+    }
+    .facebook{
+        width: 15px;
     }
 }
 
