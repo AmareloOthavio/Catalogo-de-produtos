@@ -1,9 +1,19 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
 }
 
-.v {
-    background-color: red;
+:root {
+    --roxo: #8454f4;
+    --rodape1: #1d2331;
+    --rodape2: #1f1e2c;
+    --branco: white;
+    --preto: black;
 }
