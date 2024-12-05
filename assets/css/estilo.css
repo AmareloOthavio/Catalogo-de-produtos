@@ -216,6 +216,8 @@ header{
   justify-content: space-between;
   align-items: center;
   padding: 15px 10px;
+  position: relative;
+  z-index: 999;
   & .logo{
     display: flex;
     justify-content: center;
@@ -252,14 +254,13 @@ header{
       outline: none;
       font-size: 20px;
       padding: 0px 10px;
-      z-index: 9999;
     }
     & nav a{
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 10px;
-      z-index: 999999;
+      z-index: 9999;
       & p{
         color:var(--preto);
         font-size: 23px;
