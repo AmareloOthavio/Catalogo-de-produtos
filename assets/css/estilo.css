@@ -1,11 +1,14 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
 }
-
-.v {
-    background-color: red;
+.inter{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
 }
 /* Fontes */
 .rammetto-one-regular {
@@ -120,4 +123,10 @@
     font-weight: 900;
     font-style: italic;
   }
-    
+:root {
+    --roxo: #8454f4;
+    --rodape1: #1d2331;
+    --rodape2: #1f1e2c;
+    --branco: white;
+    --preto: black;
+}
