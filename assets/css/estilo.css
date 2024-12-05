@@ -129,6 +129,7 @@
     --rodape2: #1f1e2c;
     --branco: white;
     --preto: black;
+    --roxo2: #8454F5;
 }
 .d-flex {
     display: flex;
@@ -202,6 +203,7 @@
 }
 .m-top{
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 .img-size{
     height: 80%;
