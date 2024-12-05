@@ -8,7 +8,6 @@ const barraPesquisar = document.getElementById('pesquisa')
 // }
 
 function Pesquisar() {
-    barraPesquisar.className = 'v'
     console.log('Pesquisou')
     exibirProdutos(barraPesquisar.value)
 }
@@ -55,6 +54,7 @@ cadastrar.addEventListener('submit', function(event) {
         campo.value = ''
     })
     exibirProdutos()
+    window.location.href = "index.html"
 })
 
 // Edição de produtos
@@ -123,8 +123,8 @@ function cancelarExcluir() {
 cancelarExclusao.addEventListener('click', cancelarExcluir)
 
 
-// Carregar e exibir produtos
-function exibirProdutos(pesquisa) {
+// Carregar e exibir produtos com base na pesquisa
+function exibirProdutos(pesquisa = '') {
     const produtosDiv = document.getElementById('produtos')
     const prodAtuais = localStorage.getItem('produtos')
     
@@ -136,50 +136,88 @@ function exibirProdutos(pesquisa) {
     const produtos = JSON.parse(prodAtuais)
     produtosDiv.innerHTML = ''
 
-    produtos.forEach(function(produto) {
-        // Criando uma div para cada produto
-        const produtoDiv = document.createElement('div')
-        produtoDiv.classList.add('produto')
+    // Filtra os produtos se houver uma pesquisa
+    const produtosFiltrados = produtos.filter(prod => prod.nome.toLowerCase().includes(pesquisa.toLowerCase()))
 
-        // Criando os elementos dentro da div do produto
-        const nomeElement = document.createElement('h3')
-        nomeElement.textContent = `Nome: ${produto.nome}`
+    // Se não encontrar nenhum produto que corresponda à pesquisa
+    if (produtosFiltrados.length === 0) {
+        produtosDiv.innerHTML = '<p>Nenhum produto encontrado.</p>'
+        return
+    }
 
-        const descricaoElement = document.createElement('p')
-        descricaoElement.textContent = `Descrição: ${produto.descricao}`
+    // Exibe os produtos filtrados (ou todos se não houver pesquisa)
+    produtosFiltrados.forEach(function(produto) {
+        const produtoDiv = document.createElement('div');
+produtoDiv.classList.add('product-item');
 
-        const categoriaElement = document.createElement('p')
-        categoriaElement.textContent = `Categoria: ${produto.categoria}`
+// Criando o elemento de imagem (background)
+const imgProduto = document.createElement('div');
+imgProduto.classList.add('tamanho-sapatos-expositor');
+imgProduto.style.backgroundImage = `url(${produto.imagem})`;  // Definindo o fundo com a imagem
 
-        const editarElement = document.createElement('button')
-        editarElement.textContent = 'Editar'
-        editarElement.id = 'btn-editar'
+// Criando o título do produto
+const titulo = document.createElement('p');
+titulo.classList.add('poppins-regular');
+titulo.textContent = produto.nome;  // Adicionando o nome do produto
 
-        const excluirElement = document.createElement('button')
-        excluirElement.textContent = 'Excluir'
-        excluirElement.id = 'btn-excluir'
-    
-        const precoElement = document.createElement('p')
-        precoElement.textContent = `Preço: R$ ${produto.preco}`
-    
-        // Adicionando os textos do elemento na div que pertence a ele
-        produtoDiv.appendChild(nomeElement)
-        produtoDiv.appendChild(descricaoElement)
-        produtoDiv.appendChild(categoriaElement)
-        produtoDiv.appendChild(precoElement)
-        produtoDiv.appendChild(editarElement)
-        produtoDiv.appendChild(excluirElement)
-    
-        produtosDiv.appendChild(produtoDiv)
+// Criando a div de detalhes
+const divDetalhes = document.createElement('div');
+divDetalhes.classList.add('d-flex', 'detalhes-rectangle', 'padding-all', 'c-pointer');
 
-        editarElement.addEventListener('click', function() {
+// Criando o sinal de mais e a descrição de mais detalhes
+const sinalMais = document.createElement('div');
+sinalMais.classList.add('circle', 'd-flex', 'center-all');  // Classe do círculo
+
+const imagemMais = document.createElement('img');
+imagemMais.classList.add('plus-size');
+imagemMais.src = 'assets/img/plus-solid-white.png';  // Caminho da imagem para o ícone de "mais"
+
+const maisDetalhes = document.createElement('p');
+maisDetalhes.classList.add('poppins-regular', 'color-white', 'l-spacing');
+maisDetalhes.textContent = 'MAIS DETALHES';  // Texto para "MAIS DETALHES"
+
+// Criando os botões de editar e excluir
+const divEditarExcluir = document.createElement('div');
+divEditarExcluir.classList.add('edit-exclude-buttons');
+
+// Criando o botão de editar
+const buttonEditar = document.createElement('button');
+const iconeEditar = document.createElement('img');
+iconeEditar.src = 'assets/img/pen-solid.png';  // Ícone para editar
+iconeEditar.classList.add('icon-size');
+
+// Criando o botão de excluir
+const buttonExcluir = document.createElement('button');
+const iconeExcluir = document.createElement('img');
+iconeExcluir.src = 'assets/img/trash-solid.png';  // Ícone para excluir
+iconeExcluir.classList.add('icon-size');
+
+// Adicionando os elementos na estrutura correta
+produtoDiv.appendChild(imgProduto);
+produtoDiv.appendChild(titulo);
+produtoDiv.appendChild(divDetalhes);
+divDetalhes.appendChild(sinalMais);
+sinalMais.appendChild(imagemMais);
+sinalMais.appendChild(maisDetalhes);
+produtoDiv.appendChild(divEditarExcluir);
+divEditarExcluir.appendChild(buttonEditar);
+divEditarExcluir.appendChild(buttonExcluir);
+buttonEditar.appendChild(iconeEditar);
+buttonExcluir.appendChild(iconeExcluir);
+
+// Adicionando o produto na div principal de produtos
+produtosDiv.appendChild(produtoDiv);
+
+
+        buttonEditar.addEventListener('click', function() {
             confirmarEditar(produto.codigo)
         })
-        excluirElement.addEventListener('click', function() {
+        buttonExcluir.addEventListener('click', function() {
             confirmarExclusao(produto.codigo)
         })
     })
 }
+
 
 barraPesquisar.addEventListener('change', Pesquisar)
 window.addEventListener('load', function() {
