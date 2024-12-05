@@ -14,6 +14,30 @@
     --preto: black;
 }
 
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    position: relative;
+    z-index: 999;
+    & .logo{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & img{
+        width: 93px;
+        height: 93px;
+      }
+      & h2{
+        color: var(--roxo);
+        font-size: 28px;
+      }
+    }
+}
+    
+
+
 .rammetto-one-regular {
     font-family: "Rammetto One", sans-serif;
     font-weight: 400;
@@ -30,6 +54,7 @@
   
 .air-jordan{
     width: 750px;
+    margin-top: -206px;
   }
 
 .poppins-bold {
@@ -40,11 +65,26 @@
 
 .d-flex {
     display: flex;
+    gap: 20px;
 }
 
 .generos {
     display: flex;
     gap: 20px;
+}
+
+
+
+.masc {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 3px;
+}
+
+.fem {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 3px;
 }
 
 p {
