@@ -141,8 +141,8 @@ footer {
   justify-content: space-around;
   align-items: center;
   gap: 20px;  
-  padding-top: 20px;
-  padding-bottom: 20px;             
+  padding-top: 3px;
+  padding-bottom: 10px;             
 }
 
 .redes a {
@@ -189,6 +189,7 @@ footer {
 
 .padding {
   padding: 20px;
+  padding-left: 70px;
 }
 
 .logo_rodape {
