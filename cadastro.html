@@ -29,22 +29,22 @@
     <section class="principal">
         <img class="air-jordan" src="assets/img/air-jordan.png" alt="">
 
-        <form action="{{ url_for('cadastro') }}" method="post">
+        <form id="cadastrar">
             <h1 class="poppins-bold">Cadastre seu Calçado</h1>
             <div class="d-flex">
                 <section class="direita">
                     <p class="poppins-bold">Nome</p>
-                    <input class="input1"placeholder="Tenis" required type="text" />
+                    <input class="input1"placeholder="Tenis" required type="text" id="nome" />
     
                     <p class="poppins-bold">Preço</p>
-                    <input class="input2" required placeholder="R$999,99" type="number" />
+                    <input class="input2" required placeholder="R$999,99" type="number" id="preco" />
     
                     <p class="poppins-bold">Descrição</p>
-                    <input class="input1" required placeholder="" type="text" />
+                    <input class="input1" required placeholder="" type="text" id="descricao" />
                 </section>
                 <section class="esquerda">
                     <p class="poppins-bold">Categoria</p>
-                    <input class="input2" placeholder="Esportivo" required type="text" />
+                    <input class="input2" placeholder="Esportivo" required type="text" id="categoria" />
                     <p class="poppins-bold">Gênero</p>
                     <div class="generos">
                         <div>
@@ -57,57 +57,10 @@
                         </div>
                     </div>
                     <p class="poppins-bold">Foto</p>
-                    <input class="input3" placeholder="Insira sua URL" required type="text" />
-        
-
-        <div class="formulario">
-
-            <form id="cadastrar">
-
-                <h1 class="poppins-bold">Cadastrar seu Calçado</h1>
-
-
-                <div class="d-flex">
-                    <section class="direita">
-                        <p class="poppins-bold">Nome</p>
-                        <input class="input1" required type="text" id="nome" />
-    
-                        <p class="poppins-bold">Preço</p>
-                        <input class="input2" required type="number" id="preco" />
-    
-                        <p class="poppins-bold">Descrição</p>
-                        <input class="input1" required type="text" id="descricao" />
-                    </section>
-    
-    
-                    <section class="esquerda">
-                        <p class="poppins-bold">Categoria</p>
-                        <input class="input2" required type="text" id="categoria" />
-    
-                        <p class="poppins-bold">Gênero</p>
-    
-                        <div class="generos">
-                            <div class="masc">
-                                <p class="poppins-bold">Masculino</p>
-                                <input class="" required type="checkbox" />
-                            </div>
-        
-                            <div class="fem">
-                                <p class="poppins-bold">Feminino</p>
-                                <input class="" required type="checkbox" />
-                            </div>
-                        </div>
-    
-                        <p class="poppins-bold">Foto</p>
-                        <input class="input3" required type="text" id="imagem"/>
-                    </section>
-                </div>
-
-                </section>
-            </div>
+                    <input class="input3" placeholder="Insira sua URL" required type="text" id="imagem" />
                 <section class="flex4">
                     <button class="poppins-bold" type="submit">Cadastrar +</button>
-                    <p>Clique <a href="index.html"> aqui</a> para cancaelar o cadastro</p>
+                    <p>Clique <a href="index.html"> aqui</a> para cancelar o cadastro</p>
             </section>
         </form>
     </section>
