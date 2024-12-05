@@ -37,8 +37,9 @@ cadastrar.addEventListener('submit', function(event) {
 
     // Adicionando como objeto em localStorage
     let prodAtuais = localStorage.getItem('produtos')
+    var vermais = document.getElementsByClassName(".vermais")
     if (!prodAtuais) {
-        prodAtuais = []
+        prodAtuais = [] 
       } else {
         prodAtuais = JSON.parse(prodAtuais)
       }
@@ -48,7 +49,9 @@ cadastrar.addEventListener('submit', function(event) {
     localStorage.setItem('produtos', JSON.stringify(prodAtuais))
 
     console.log(localStorage.produtos)
-
+    if (idProduto>6){
+        vermais.style.display="block"
+    }
     // Esvaziando os inputs
     inputs.forEach(function(campo) {
         campo.value = ''
@@ -129,7 +132,7 @@ function exibirProdutos(pesquisa = '') {
     const prodAtuais = localStorage.getItem('produtos')
     
     if (!prodAtuais) {
-        produtosDiv.innerHTML = '<p>Nenhum produto encontrado.</p>'
+        produtosDiv.innerHTML = '<p class="poppins-regular">Nenhum produto encontrado.</p>'
         return
     }
     
