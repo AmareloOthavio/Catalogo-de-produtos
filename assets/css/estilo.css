@@ -129,8 +129,121 @@
     --rodape2: #1f1e2c;
     --branco: white;
     --preto: black;
+    --roxo2: #8454F5;
 }
-/* rodapé */
+.d-flex {
+    display: flex;
+}
+.f-wrap {
+    flex-wrap: wrap;
+}
+.s-evenly {
+    justify-content: space-evenly;
+}
+.center {
+    justify-content: center;
+}
+.padding-all {
+    padding: 4px;
+}
+.center-all {
+    justify-content: center;
+    align-items: center;
+}
+.a-center {
+    align-items: center;
+}
+.c-pointer {
+    cursor: pointer;
+}
+
+/* Expositor */
+.tamanho-sapatos-expositor {
+    width: 350px;
+    height: 330px;
+    transition: all 0.3s ease;
+    background-size: 95%;
+    background-position: center;
+}
+.circle{
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    border: 3px solid var(--branco);
+}
+.border-vermais{
+    border: 4px solid var(--roxo);
+    border-radius: 13px;
+    width: 200px;
+}
+.color-roxo1 {
+    color: var(--roxo);
+}
+.color-white{
+    color: var(--branco);
+}
+.product-item {
+    position: relative;
+}
+.detalhes-rectangle {
+    border-radius: 10px;
+    background-color: var(--roxo2);
+    width: 201px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 4px;
+}
+.plus-size{
+    height: 22px;
+    width: 20px;
+}
+.l-spacing{
+    letter-spacing: 1px;
+}
+.m-top{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.img-size{
+    height: 80%;
+    width: 80%;
+}
+.edit-exclude-buttons {
+    display: none; 
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+    gap: 10px;
+    z-index: 10;
+}
+.edit-exclude-buttons button {
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    background: none;
+}
+.product-item:hover .edit-exclude-buttons {
+    display: flex;
+    animation: slideIn 0.3s ease;
+}.product-item:hover .tamanho-sapatos-expositor {
+    background-size: 105%;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.icon-size{
+    height: 100%;
+    width: 50%;
+}
 
 footer {
   background-color: var(--roxo);
