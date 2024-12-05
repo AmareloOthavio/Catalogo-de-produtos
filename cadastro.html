@@ -1,57 +1,85 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <html lang="pt-br" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="assets/css/cadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rammetto+One&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <img src="assets/img/pé roxo.png" alt="">
-        <p>Passo Certo</p>
+        <img class="logo" src="assets/img/pé roxo.png" alt="">
+        <p class="rammetto-one-regular">Passo Certo</p>
     </header>
 
-    <h1 class="titulo">Cadastrar seu Calçado</h1>
-    <form action="{{ url_for('cadastro') }}" method="post">
-        <section class="flex">
-        <div class="form">
-            <p class="label1">Nome</p>
-            <input class="input1" required type="text"/>
-        </div>
+    <section class="principal">
 
-        <div class="form">
-            <p class="label1">Categoria</p>
-            <input class="input1" required type="text"/>
-        </div>
-    </section>
-    <section class="flex">
-        <div class="form">
-            <p class="label1">Descrição</p>
-            <input class="input2" required type="text"/>
-        </div>
+        <img class="air-jordan" src="assets/img/air-jordan.png" alt="">
 
-        <div class="form">
-            <p class="label1">Preço</p>
-            <input class="input2" required type="number"/>
-        </div>
-    </section>
-    <section class="flex">
-        <div class="form">
-          <p class="label1">Gênero</p>
-            <p>Masculino</p>
-            <input class="input3" required type="checkbox"/>
-            <p>Feminino</p>
-            <input class="input3" required type="checkbox"/>
-        </div>
+        
 
-        <div class="form">
-          <p class="label1">Foto</p>
-            <input class="input3" required type="image"/>
+        <div class="formulario">
+
+            <form action="{{ url_for('cadastro') }}" method="post">
+
+                <h1 class="poppins-bold">Cadastrar seu Calçado</h1>
+
+
+                <div class="d-flex">
+                    <section class="direita">
+                        <p class="poppins-bold">Nome</p>
+                        <input class="input1" required type="text" />
+    
+                        <p class="poppins-bold">Preço</p>
+                        <input class="input2" required type="number" />
+    
+                        <p class="poppins-bold">Descrição</p>
+                        <input class="input1" required type="text" />
+                    </section>
+    
+    
+                    <section class="esquerda">
+                        <p class="poppins-bold">Categoria</p>
+                        <input class="input2" required type="text" />
+    
+                        <p class="poppins-bold">Gênero</p>
+    
+                        <div class="generos">
+                            <div class="masc">
+                                <p class="poppins-bold">Masculino</p>
+                                <input class="" required type="checkbox" />
+                            </div>
+        
+                            <div class="fem">
+                                <p class="poppins-bold">Feminino</p>
+                                <input class="" required type="checkbox" />
+                            </div>
+                        </div>
+    
+                        <p class="poppins-bold">Foto</p>
+                        <input class="input3" required type="image" />
+                    </section>
+                </div>
+
+
+                <section class="flex4">
+                    <button class="poppins-bold" type="submit">Cadastrar +</button>
+                </section>
+
+            </form>
         </div>
     </section>
-    <section class="flex">
-        <button class="bt5" type="submit">Cadastrar →</button>
-    </section>
-    </form>
 </body>
+
 </html>

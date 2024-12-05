@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+:root {
+    --roxo: #8454f4;
+    --rodape1: #1d2331;
+    --rodape2: #1f1e2c;
+    --branco: white;
+    --preto: black;
+}
+
+.rammetto-one-regular {
+    font-family: "Rammetto One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.formulario {
+    display: flex;
+}
+
+.principal{
+    display: flex;
+  }
+  
+.air-jordan{
+    width: 750px;
+  }
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+.d-flex {
+    display: flex;
+}
+
+.generos {
+    display: flex;
+    gap: 20px;
+}
+
+p {
+    color: var(--roxo);
+}
+
+h1 {
+    color: var(--roxo);
+}
+
+button {
+    border-radius: 25px;
+    margin-top: 10px;
+    color: var(--branco);
+    padding: 10px;
+    padding-left: 60px;
+    padding-right: 60px;
+    background-color: var(--roxo);
+    border: 5px solid var(--branco);
+}
+
+button:hover {
+    background-color: var(--branco);
+    border: 5px solid var(--roxo);
+    color: var(--roxo);
+}
