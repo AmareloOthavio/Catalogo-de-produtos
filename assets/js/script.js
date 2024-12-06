@@ -113,6 +113,17 @@ function exibirProdutos(pesquisa = '') {
         const divDetalhes = document.createElement('div');
         divDetalhes.classList.add('detalhes-rectangle', 'd-flex', 'c-pointer'); // Colocando a classe d-flex para alinhar os itens
 
+        const detalhes = document.createElement('div')
+        const cate = document.createElement('p')
+        cate.textContent = `Categoria: ${produto.categoria}`
+        const preco = document.createElement('p')
+        preco.textContent = `Preço: R$${produto.preco}`
+        const desc = document.createElement('p')
+        desc.textContent = `Descrição: ${produto.descricao}`
+        detalhes.className = 'inter'
+        detalhes.style.display = 'none'
+
+
         // Criando o sinal de mais e a descrição de mais detalhes
         const sinalMais = document.createElement('div');
         sinalMais.classList.add('circle', 'd-flex', 'center-all');  // Classe do círculo para o ícone
@@ -132,6 +143,11 @@ function exibirProdutos(pesquisa = '') {
         divDetalhes.appendChild(sinalMais);
         sinalMais.appendChild(imagemMais);
         divDetalhes.appendChild(maisDetalhes);
+
+        detalhes.appendChild(cate)
+        detalhes.appendChild(preco)
+        detalhes.appendChild(desc)
+        produtoDiv.appendChild(detalhes)
 
         // Adicionando o produto na div principal de produtos
         produtosDiv.appendChild(produtoDiv);
@@ -159,8 +175,25 @@ function exibirProdutos(pesquisa = '') {
         buttonEditar.appendChild(iconeEditar);
         buttonExcluir.appendChild(iconeExcluir);
 
+        // Uma transição
+        produtoDiv.style.transition = 'all 3s;'
+
         // Eventos para os botões
+        divDetalhes.addEventListener('click', function() {
+            console.log('clicou')
+            if (detalhes.style.display == 'block') {
+                detalhes.style.display = 'none'
+                maisDetalhes.textContent = 'MAIS DETALHES'
+                imagemMais.style.rotate = '0deg'
+            }
+            else {
+                detalhes.style.display = 'block'
+                maisDetalhes.textContent = 'MENOS DETALHES'
+                imagemMais.style.rotate = '45deg'
+            }
+        })
         buttonEditar.addEventListener('click', function() {
+
             confirmarEditar(produto.codigo)
         })
         buttonExcluir.addEventListener('click', function() {
