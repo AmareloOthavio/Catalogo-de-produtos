@@ -1,19 +1,12 @@
 const barraPesquisar = document.getElementById('pesquisa')
 
-// produtoTeste = {
-//     'nome': 'sapato1',
-//     'descricao': 'sapato teste',
-//     'categoria': 'sapatos',
-//     'preco': 22.45
-// }
-
+// Função para pesquisa
 function Pesquisar() {
     console.log('Pesquisou')
     exibirProdutos(barraPesquisar.value)
 }
 
-
-// Coisas para cadastro de produtos
+// Função de cadastro de produtos
 function Produto(nome, descricao, categoria, preco, codigo, imagem) {
     this.nome = nome
     this.descricao = descricao
@@ -37,21 +30,16 @@ cadastrar.addEventListener('submit', function(event) {
 
     // Adicionando como objeto em localStorage
     let prodAtuais = localStorage.getItem('produtos')
-    var vermais = document.getElementsByClassName(".vermais")
     if (!prodAtuais) {
         prodAtuais = [] 
-      } else {
+    } else {
         prodAtuais = JSON.parse(prodAtuais)
-      }
+    }
     let idProduto = prodAtuais.length
     const produtoNovo = new Produto(nome.value, descricao.value, categoria.value, preco.value, idProduto, imagem.value)
     prodAtuais.push(produtoNovo)
     localStorage.setItem('produtos', JSON.stringify(prodAtuais))
 
-    console.log(localStorage.produtos)
-    if (idProduto>6){
-        vermais.style.display="block"
-    }
     // Esvaziando os inputs
     inputs.forEach(function(campo) {
         campo.value = ''
@@ -90,6 +78,7 @@ function confirmarEditar(codigo) {
         exibirProdutos()
     })
 }
+
 // Para o botão de cancelar edição
 const cancelarEditar = document.getElementById('cancelar-edicao')
 cancelarEditar.addEventListener('click', function() {
@@ -109,6 +98,7 @@ function confirmarExclusao(codigo) {
         excluir(codigo)
     })
 }
+
 function excluir(codigo) {
     let produtos = JSON.parse(localStorage.getItem('produtos'))
 
@@ -118,6 +108,7 @@ function excluir(codigo) {
     exibirProdutos()
     modalExcluir.style.display = 'none'
 }
+
 // Para o cancelamento de exclusão
 const cancelarExclusao = document.getElementById('cancelar-exclusao')
 function cancelarExcluir() {
@@ -125,14 +116,13 @@ function cancelarExcluir() {
 }
 cancelarExclusao.addEventListener('click', cancelarExcluir)
 
-
 // Carregar e exibir produtos com base na pesquisa
 function exibirProdutos(pesquisa = '') {
     const produtosDiv = document.getElementById('produtos')
     const prodAtuais = localStorage.getItem('produtos')
     
     if (!prodAtuais) {
-        produtosDiv.innerHTML = '<p class="poppins-regular m-bot">Nenhum produto encontrado.</p>'
+        produtosDiv.innerHTML = '<p class="poppins-regular">Nenhum produto encontrado.</p>'
         return
     }
     
@@ -144,74 +134,76 @@ function exibirProdutos(pesquisa = '') {
 
     // Se não encontrar nenhum produto que corresponda à pesquisa
     if (produtosFiltrados.length === 0) {
-        produtosDiv.innerHTML = '<p>Nenhum produto encontrado.</p>'
+        produtosDiv.innerHTML = '<p class="poppins-regular">Nenhum produto encontrado.</p>'
         return
     }
 
     // Exibe os produtos filtrados (ou todos se não houver pesquisa)
     produtosFiltrados.forEach(function(produto) {
         const produtoDiv = document.createElement('div');
-produtoDiv.classList.add('product-item');
+        produtoDiv.classList.add('product-item');
 
-// Criando o elemento de imagem (background)
-const imgProduto = document.createElement('div');
-imgProduto.classList.add('tamanho-sapatos-expositor');
-imgProduto.style.backgroundImage = `url(${produto.imagem})`;  // Definindo o fundo com a imagem
+        // Criando o elemento de imagem (background)
+        const imgProduto = document.createElement('div');
+        imgProduto.classList.add('tamanho-sapatos-expositor');
+        imgProduto.style.backgroundImage = `url(${produto.imagem})`;  // Definindo o fundo com a imagem
 
-// Criando o título do produto
-const titulo = document.createElement('p');
-titulo.classList.add('poppins-regular');
-titulo.textContent = produto.nome;  // Adicionando o nome do produto
+        // Criando o título do produto
+        const titulo = document.createElement('p');
+        titulo.classList.add('poppins-regular');
+        titulo.textContent = produto.nome;  // Adicionando o nome do produto
 
-// Criando a div de detalhes
-const divDetalhes = document.createElement('div');
-divDetalhes.classList.add('d-flex', 'detalhes-rectangle', 'padding-all', 'c-pointer');
+        // Criando a div de detalhes
+        const divDetalhes = document.createElement('div');
+        divDetalhes.classList.add('detalhes-rectangle', 'd-flex', 'c-pointer'); // Colocando a classe d-flex para alinhar os itens
 
-// Criando o sinal de mais e a descrição de mais detalhes
-const sinalMais = document.createElement('div');
-sinalMais.classList.add('circle', 'd-flex', 'center-all');  // Classe do círculo
+        // Criando o sinal de mais e a descrição de mais detalhes
+        const sinalMais = document.createElement('div');
+        sinalMais.classList.add('circle', 'd-flex', 'center-all');  // Classe do círculo para o ícone
 
-const imagemMais = document.createElement('img');
-imagemMais.classList.add('plus-size');
-imagemMais.src = 'assets/img/plus-solid-white.png';  // Caminho da imagem para o ícone de "mais"
+        const imagemMais = document.createElement('img');
+        imagemMais.classList.add('plus-size');
+        imagemMais.src = 'assets/img/plus-solid-white.png';  // Caminho da imagem para o ícone de "mais"
 
-const maisDetalhes = document.createElement('p');
-maisDetalhes.classList.add('poppins-regular', 'color-white', 'l-spacing');
-maisDetalhes.textContent = 'MAIS DETALHES';  // Texto para "MAIS DETALHES"
+        const maisDetalhes = document.createElement('p');
+        maisDetalhes.classList.add('poppins-regular', 'color-white', 'l-spacing', 'm-l-10'); // Adicionando margem à esquerda
+        maisDetalhes.textContent = 'MAIS DETALHES';  // Texto para "MAIS DETALHES"
 
-// Criando os botões de editar e excluir
-const divEditarExcluir = document.createElement('div');
-divEditarExcluir.classList.add('edit-exclude-buttons');
+        // Adicionando os elementos na estrutura correta
+        produtoDiv.appendChild(imgProduto);
+        produtoDiv.appendChild(titulo);
+        produtoDiv.appendChild(divDetalhes);
+        divDetalhes.appendChild(sinalMais);
+        sinalMais.appendChild(imagemMais);
+        divDetalhes.appendChild(maisDetalhes);
 
-// Criando o botão de editar
-const buttonEditar = document.createElement('button');
-const iconeEditar = document.createElement('img');
-iconeEditar.src = 'assets/img/pen-solid.png';  // Ícone para editar
-iconeEditar.classList.add('icon-size');
+        // Adicionando o produto na div principal de produtos
+        produtosDiv.appendChild(produtoDiv);
 
-// Criando o botão de excluir
-const buttonExcluir = document.createElement('button');
-const iconeExcluir = document.createElement('img');
-iconeExcluir.src = 'assets/img/trash-solid.png';  // Ícone para excluir
-iconeExcluir.classList.add('icon-size');
+        // Criando os botões de editar e excluir
+        const divEditarExcluir = document.createElement('div');
+        divEditarExcluir.classList.add('edit-exclude-buttons');
 
-// Adicionando os elementos na estrutura correta
-produtoDiv.appendChild(imgProduto);
-produtoDiv.appendChild(titulo);
-produtoDiv.appendChild(divDetalhes);
-divDetalhes.appendChild(sinalMais);
-sinalMais.appendChild(imagemMais);
-sinalMais.appendChild(maisDetalhes);
-produtoDiv.appendChild(divEditarExcluir);
-divEditarExcluir.appendChild(buttonEditar);
-divEditarExcluir.appendChild(buttonExcluir);
-buttonEditar.appendChild(iconeEditar);
-buttonExcluir.appendChild(iconeExcluir);
+        // Criando o botão de editar
+        const buttonEditar = document.createElement('button');
+        const iconeEditar = document.createElement('img');
+        iconeEditar.src = 'assets/img/pen-solid.png';  // Ícone para editar
+        iconeEditar.classList.add('icon-size');
 
-// Adicionando o produto na div principal de produtos
-produtosDiv.appendChild(produtoDiv);
+        // Criando o botão de excluir
+        const buttonExcluir = document.createElement('button');
+        const iconeExcluir = document.createElement('img');
+        iconeExcluir.src = 'assets/img/trash-solid.png';  // Ícone para excluir
+        iconeExcluir.classList.add('icon-size');
 
+        // Adicionando os botões de editar e excluir na estrutura
+        produtoDiv.appendChild(divEditarExcluir);
+        divEditarExcluir.appendChild(buttonEditar);
+        divEditarExcluir.appendChild(buttonExcluir);
+        buttonEditar.appendChild(iconeEditar);
+        buttonExcluir.appendChild(iconeExcluir);
 
+        // Eventos para os botões
         buttonEditar.addEventListener('click', function() {
             confirmarEditar(produto.codigo)
         })
@@ -221,10 +213,8 @@ produtosDiv.appendChild(produtoDiv);
     })
 }
 
-
 barraPesquisar.addEventListener('change', Pesquisar)
 window.addEventListener('load', function() {
     console.log('Lista de produtos: ', localStorage.produtos)
-    // localStorage.setItem('produtos', '')
     exibirProdutos()
 })
