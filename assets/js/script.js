@@ -1,53 +1,9 @@
 const barraPesquisar = document.getElementById('pesquisa')
 
-// Função para pesquisa
 function Pesquisar() {
     console.log('Pesquisou')
     exibirProdutos(barraPesquisar.value)
 }
-
-// Função de cadastro de produtos
-function Produto(nome, descricao, categoria, preco, codigo, imagem) {
-    this.nome = nome
-    this.descricao = descricao
-    this.categoria = categoria
-    this.preco = preco
-    this.codigo = codigo
-    this.imagem = imagem
-}
-
-const cadastrar = document.getElementById('cadastrar')
-cadastrar.addEventListener('submit', function(event) {
-    event.preventDefault()
-
-    const nome = document.getElementById('nome')
-    const descricao = document.getElementById('descricao')
-    const preco = document.getElementById('preco')
-    const categoria = document.getElementById('categoria')
-    const imagem = document.getElementById('imagem')
-
-    const inputs = document.querySelectorAll('#cadastrar input')
-
-    // Adicionando como objeto em localStorage
-    let prodAtuais = localStorage.getItem('produtos')
-    if (!prodAtuais) {
-        prodAtuais = [] 
-    } else {
-        prodAtuais = JSON.parse(prodAtuais)
-    }
-    let idProduto = prodAtuais.length
-    const produtoNovo = new Produto(nome.value, descricao.value, categoria.value, preco.value, idProduto, imagem.value)
-    prodAtuais.push(produtoNovo)
-    localStorage.setItem('produtos', JSON.stringify(prodAtuais))
-
-    // Esvaziando os inputs
-    inputs.forEach(function(campo) {
-        campo.value = ''
-    })
-    exibirProdutos()
-    window.location.href = "index.html"
-})
-
 // Edição de produtos
 const modalEditar = document.getElementById('modal-editar')
 function confirmarEditar(codigo) {
