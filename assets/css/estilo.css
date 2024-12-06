@@ -341,6 +341,125 @@ footer {
   padding-top: 20px;
   padding-bottom: 20px
 }
+/* Estilização dos modais */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente */
+  display: none; /* Inicialmente escondido */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Conteúdo do modal */
+.modal-conteudo {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Cabeçalho do modal */
+.modal-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-cabecalho h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.fechar-modal {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.fechar-modal:hover {
+  color: #ff3e3e;
+}
+
+/* Inputs do modal */
+label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  margin: 10px 0 5px;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+/* Botões do modal */
+.botao-atualizar,
+.botao-cancelar,
+.botao-confirmar {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  margin: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.botao-atualizar {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.botao-atualizar:hover {
+  background-color: #45a049;
+}
+
+.botao-cancelar {
+  background-color: #f44336;
+  color: white;
+}
+
+.botao-cancelar:hover {
+  background-color: #da190b;
+}
+
+.botao-confirmar {
+  background-color: #007bff;
+  color: white;
+}
+
+.botao-confirmar:hover {
+  background-color: #0056b3;
+}
+
+/* Posicionamento dos botões de ação no modal de exclusão */
+.modal-botoes {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* Mostrar o modal */
+.modal.ativo {
+  display: flex;
+}
 header{
   display: flex;
   justify-content: space-between;
